@@ -1,0 +1,6 @@
+{
+  "name": "Relatórios Chão de Fábrica - Linha de Solda",
+  "description": "Aplicativo mobile-first para registro ultra-rápido de produção, defeitos por posto e exportação instantânea de relatórios de turno para WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

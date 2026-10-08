@@ -1,0 +1,33 @@
+{
+  "id": "/",
+  "name": "Relatórios Chão de Fábrica - Linha de Solda",
+  "short_name": "RelatSolda",
+  "description": "Registro ágil de produção e envio instantâneo de relatórios para WhatsApp",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
+  "categories": ["business", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

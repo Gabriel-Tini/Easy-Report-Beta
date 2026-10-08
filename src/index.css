@@ -1,0 +1,257 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .pb-safe {
+    padding-bottom: max(env(safe-area-inset-bottom), 1rem);
+  }
+}
+
+html, body {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  overscroll-behavior-y: none;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ========================================================
+   SISTEMA DE VARIÁVEIS DE TEMA INDUSTRIAL (PROC-X / SCADA STYLE)
+   ======================================================== */
+
+:root, [data-theme="dark"] {
+  color-scheme: dark;
+  --bg-app: #0e1014;
+  --bg-surface: #15181f;
+  --bg-card: #1b1f28;
+  --bg-card-border: #292e3a;
+  --bg-card-hover: #222733;
+  --bg-pill-dark: #000000;
+  --bg-banner: #090a0d;
+  --text-primary: #f4f5f8;
+  --text-secondary: #9da4b3;
+  --text-muted: #646b7a;
+  --border-main: #2b303d;
+  --border-subtle: #1c202a;
+  --accent-yellow: #f59e0b;
+  --accent-yellow-light: #fbbf24;
+  --kpi-bg: #161922;
+  --bottom-dock: #090a0d;
+  --donut-track: #262a36;
+}
+
+/* TEMA CLARO */
+[data-theme="light"] {
+  color-scheme: light;
+  --bg-app: #f2f4f7;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-border: #d0d5dd;
+  --bg-card-hover: #f9fafb;
+  --bg-pill-dark: #101216;
+  --bg-banner: #101216;
+  --text-primary: #101828;
+  --text-secondary: #344054;
+  --text-muted: #667085;
+  --border-main: #d0d5dd;
+  --border-subtle: #e4e7ec;
+  --accent-yellow: #eab308;
+  --accent-yellow-light: #fde047;
+  --kpi-bg: #090a0d;
+  --bottom-dock: #101216;
+  --donut-track: #e4e7ec;
+}
+
+/* TEMA CINZA CONCRETO INDUSTRIAL (INSPIRADO NA IMAGEM DE REFERÊNCIA) */
+[data-theme="gray"] {
+  color-scheme: light;
+  --bg-app: #c4c6cb;         /* Cinza concreto sólido e acetinado */
+  --bg-surface: #dadbde;     /* Superfície industrial clara */
+  --bg-card: #d0d2d7;        /* Cards de concreto com presença */
+  --bg-card-border: #181a20; /* Borda técnica escura definida */
+  --bg-card-hover: #d8dade;
+  --bg-pill-dark: #0d0f13;   /* Pílula preta de alto contraste */
+  --bg-banner: #0b0d10;      /* Banner preto marcante e executivo */
+  --text-primary: #0b0d11;   /* Texto preto ultra nítido */
+  --text-secondary: #2b2f38; /* Texto secundário grafite */
+  --text-muted: #4e5563;     /* Texto de apoio */
+  --border-main: #181a20;    /* Borda sólida escura */
+  --border-subtle: #8e939f;  /* Borda sutil */
+  --accent-yellow: #eab308;  /* Amarelo industrial de segurança */
+  --accent-yellow-light: #facc15;
+  --kpi-bg: #090a0d;        /* Cards de KPI com fundo escuro industrial */
+  --bottom-dock: #0b0d10;    /* Barra inferior preta idêntica à foto */
+  --donut-track: #969ba5;
+}
+
+/* Padrão de Faixa Zebrada de Aviso Industrial (17:00 - 17:20) */
+.hazard-stripes {
+  background: repeating-linear-gradient(
+    -45deg,
+    #eab308,
+    #eab308 6px,
+    #14161a 6px,
+    #14161a 12px
+  );
+}
+
+/* Classes Utilitárias de Cores Semânticas */
+body {
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+.theme-app-bg {
+  background-color: var(--bg-app) !important;
+  color: var(--text-primary) !important;
+}
+
+.theme-surface {
+  background-color: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-main) !important;
+}
+
+.theme-card-slot {
+  background-color: var(--bg-card) !important;
+  border-color: var(--bg-card-border) !important;
+  color: var(--text-primary) !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+}
+
+.theme-banner {
+  background-color: var(--bg-banner) !important;
+  color: #ffffff !important;
+}
+
+.theme-kpi-card {
+  background-color: var(--kpi-bg) !important;
+  border-color: var(--border-subtle) !important;
+  color: var(--text-primary) !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.06);
+}
+
+.theme-bottom-dock {
+  background-color: var(--bottom-dock) !important;
+  border-color: var(--border-subtle) !important;
+}
+
+.theme-text-primary {
+  color: var(--text-primary) !important;
+}
+
+.theme-text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+.theme-text-muted {
+  color: var(--text-muted) !important;
+}
+
+.theme-border {
+  border-color: var(--border-main) !important;
+}
+
+.theme-border-subtle {
+  border-color: var(--border-subtle) !important;
+}
+
+.theme-pill-dark {
+  background-color: var(--bg-pill-dark) !important;
+  color: #ffffff !important;
+}
+
+.theme-pill-yellow {
+  background-color: var(--accent-yellow) !important;
+  color: #0d0f13 !important;
+}
+
+.donut-track {
+  stroke: var(--donut-track);
+}
+
+/* ========================================================
+   CONTORNO (OUTLINE) DE ALTO CONTRASTE PARA LETRAS E NÚMEROS BRANCOS ISOLADOS
+   (Para temas Claro e Cinza Claro / Concreto)
+   Garante visibilidade e legibilidade industrial nítida
+   ======================================================== */
+
+[data-theme="light"] .text-white,
+[data-theme="gray"] .text-white,
+[data-theme="light"] .text-zinc-100,
+[data-theme="gray"] .text-zinc-100,
+[data-theme="light"] .text-zinc-200,
+[data-theme="gray"] .text-zinc-200,
+[data-theme="light"] .text-contrast-guard,
+[data-theme="gray"] .text-contrast-guard,
+.contour-outline {
+  -webkit-text-stroke: 1.2px #000000;
+  paint-order: stroke fill;
+  text-shadow: 
+    -1px -1px 0 #000000,
+     1px -1px 0 #000000,
+    -1px  1px 0 #000000,
+     1px  1px 0 #000000,
+     0px -1px 0 #000000,
+     0px  1px 0 #000000,
+    -1px  0px 0 #000000,
+     1px  0px 0 #000000,
+     0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.text-contrast-guard {
+  -webkit-text-stroke: 1.2px #000000;
+  paint-order: stroke fill;
+  text-shadow: 
+    -1px -1px 0 #000000,
+     1px -1px 0 #000000,
+    -1px  1px 0 #000000,
+     1px  1px 0 #000000,
+     0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+/* ========================================================
+   BACKGROUND ESCURO E CONTORNO GARANTIDOS PARA KPI (EFFICIENCY / VOLUME)
+   E BADGE 'HOURLY LOG SHEET' NOS TEMAS CLAROS E COLORIDOS
+   ======================================================== */
+.kpi-dark-card {
+  background-color: #0b0d12 !important;
+  color: #ffffff !important;
+  border: 1.5px solid #27272a !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+[data-theme="light"] .kpi-dark-card,
+[data-theme="gray"] .kpi-dark-card {
+  background-color: #090a0f !important;
+  color: #ffffff !important;
+  border: 1.5px solid #27272a !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35) !important;
+}
+
+.kpi-dark-badge {
+  background-color: #0b0d12 !important;
+  color: #ffffff !important;
+  border: 1.5px solid #27272a !important;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-theme="light"] .kpi-dark-badge,
+[data-theme="gray"] .kpi-dark-badge {
+  background-color: #090a0f !important;
+  color: #ffffff !important;
+  border: 1.5px solid #27272a !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.metric-count-outline {
+  color: #ffffff !important;
+  -webkit-text-stroke: 0.6px #000000;
+  paint-order: stroke fill;
+  text-shadow:
+    -1px -1px 0 #000000,
+     1px -1px 0 #000000,
+    -1px  1px 0 #000000,
+     1px  1px 0 #000000,
+     0 1px 3px rgba(0, 0, 0, 0.95);
+}
